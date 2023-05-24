@@ -1,10 +1,10 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
-from flask import *  
+
 
 import pickle
 import pandas as pd
-import subprocess as sp
+
 
 
 app = Flask(__name__)
@@ -18,23 +18,20 @@ app = Flask(__name__)
 
 
 
+
+
 @app.route('/Major')
 def Major():
   
-  return render_template('Major.html') 
+  return render_template('Major.html')
 
-
-
-@app.route('/predict',methods=['GET'])
 def predict():
     
     
     '''
     For rendering results on HTML GUI
     '''
-    #result=np.array(['SqFt','bedrooms','Offers','bricks','Neighborhood','Bathrooms'])
-    #result.reshape(1,-1)
-    #print(result)
+    
     r1 = float(request.args.get('rm'))
     r2 = float(request.args.get('text'))
     r3 = float(request.args.get('perimeter'))
@@ -86,4 +83,5 @@ def predict():
     return render_template('Major.html',prediction_text="This model is saying {} ".format(message))
 
 
-app.run()
+if __name__ == "__main__":
+    app.run(debug=True)
