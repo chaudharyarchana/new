@@ -24,13 +24,7 @@ app = Flask(__name__)
 def Major():
   
   return render_template('Major.html')
-@app.route('/Gallery')
 
-
-
-
-
-@app.route('/predict',methods=['GET'])
 def predict():
     
     
